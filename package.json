@@ -1,0 +1,15 @@
+{
+  "name": "rapidapi-fintech-iban-vat-crypto-validator-worker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Universal IBAN (80+ countries MOD-97), BIC/SWIFT, EU/UK/CH VAT Modulo, Luhn Card BIN & Crypto Address (BTC/ETH/SOL/TRX) Validator API on Cloudflare Workers",
+  "main": "worker_fintech_validator.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.78.0"
+  }
+}
