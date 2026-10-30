@@ -1,0 +1,85 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Universal IBAN, BIC/SWIFT, EU VAT, Luhn Card BIN & Crypto Address Validator API",
+    "version": "1.0.0",
+    "description": "Sub-5ms global edge validation API for IBAN (80+ countries MOD-97), BIC/SWIFT (ISO 9362), EU/UK/CH VAT numbers, Credit Card Luhn & BIN networks, and Cryptocurrency addresses (BTC, ETH, SOL, TRX)."
+  },
+  "servers": [
+    {
+      "url": "https://fintech-validator-api.workers.dev"
+    }
+  ],
+  "paths": {
+    "/v1/iban": {
+      "get": {
+        "summary": "Validate IBAN & Extract SEPA / Bank Metadata",
+        "parameters": [
+          {
+            "name": "iban",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "example": "DE89370400440532013000" }
+          }
+        ],
+        "responses": { "200": { "description": "IBAN Validation Result" } }
+      }
+    },
+    "/v1/bic": {
+      "get": {
+        "summary": "Validate ISO 9362 BIC / SWIFT Code",
+        "parameters": [
+          {
+            "name": "bic",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "example": "DEUTDEFFXXX" }
+          }
+        ],
+        "responses": { "200": { "description": "BIC Validation Result" } }
+      }
+    },
+    "/v1/vat": {
+      "get": {
+        "summary": "Validate EU / UK / Swiss VAT Number",
+        "parameters": [
+          {
+            "name": "vat",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "example": "BE0417497106" }
+          }
+        ],
+        "responses": { "200": { "description": "VAT Validation Result" } }
+      }
+    },
+    "/v1/card": {
+      "get": {
+        "summary": "Validate Credit Card Luhn MOD-10 & Detect BIN Brand",
+        "parameters": [
+          {
+            "name": "number",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "example": "4532015112830366" }
+          }
+        ],
+        "responses": { "200": { "description": "Card Validation Result" } }
+      }
+    },
+    "/v1/crypto": {
+      "get": {
+        "summary": "Validate BTC, ETH/EVM, SOL & TRX Wallet Address",
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "example": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045" }
+          }
+        ],
+        "responses": { "200": { "description": "Crypto Address Validation Result" } }
+      }
+    }
+  }
+}
