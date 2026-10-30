@@ -1,0 +1,10 @@
+name = "fintech-validator-api"
+main = "worker_fintech_validator.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+RAPIDAPI_PROXY_SECRET = ""
+
+[placement]
+mode = "smart"
